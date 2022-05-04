@@ -1,9 +1,11 @@
+import imp
+from flask import Flask
 from flask import render_template
 from app import app
 
 
 #The views with the necessary routing
-app.route('/')
+@app.route('/')
 def index():
     
     # Function that returns user to the index page
