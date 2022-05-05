@@ -9,13 +9,15 @@ from ..models import *
 #The views with the necessary routing
 @main.route('/')
 def home():
+    tech_articles = get_article_by_top_headline('technology')
     all_articles = get_all_articles('all') 
     all_sources = get_sources()
-    technology_articles = get_article_top_headline('technology')
+    technology_articles = get_article_by_top_headline('technology') 
 
     search_article = request.args.get('article_query')
 
     if search_article:
         return redirect(url_for('.search',article=search_article))
 
-    return render_template('index.html',all_articles=all_articles,all_sources=all_sources,technology_articles=technology_articles)
+    return render_template('index.html',all_articles=all_articles,all_sources=all_sources,technology_articles=technology_articles, tech_articles = tech_articles)
+

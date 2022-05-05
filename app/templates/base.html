@@ -1,7 +1,17 @@
 {% extends 'bootstrap/base.html' %}
 
+{% block styles %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+{% endblock %}
 
 <!-- navbar block -->
 {% block navbar %}
     {% include 'navbar.html' %}
 {% endblock  %}
+
+{% block  form %}
+<form class="form-inline">
+    <input type="text" class="form-control mb-2 mr-sm-2 input-form" name="article_query" required id="" placeholder="Search for an article.">
+    <button type="submit" class="btn btn-primary mb-2 search-btn">Search</button>
+</form>
+{% endblock %}

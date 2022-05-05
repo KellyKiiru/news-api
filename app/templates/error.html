@@ -1,7 +1,16 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<div class="col-md-12" style="background-image: url('https://media4.giphy.com/media/BEob5qwFkSJ7G/giphy.gif'); background-position: center; background-size: cover; background-repeat: no-repeat;">
-    <h1 style="text-align: center;"> I'm sorry. We couldn't find the page you wanted. </h1>
+<div class="bg" style="background-color: black; height: 100vh">
+    {% extends 'base.html' %}
+    
+    {% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" style="padding: 50px; margin:auto;">
+                <h1 style="text-align: center; color: aliceblue;"> Sorry. We couldn't find the page you wanted. </h1>
+            </div>
+            <div class="col-md-6">
+                <img src='https://media4.giphy.com/media/BEob5qwFkSJ7G/giphy.gif' style="border-radius: 15%;" alt="">
+            </div>
+        </div>
+    </div>
+    {% endblock %}
 </div>
-{% endblock %}

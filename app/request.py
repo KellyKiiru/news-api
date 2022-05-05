@@ -29,7 +29,7 @@ def get_all_articles(query):
 
     return articles_results
 
-def get_article_top_headline(category):
+def get_article_by_top_headline(category):
     
     get_articles_url = base_url.format(category,api_key)
     with urllib.request.urlopen(get_articles_url) as url:
