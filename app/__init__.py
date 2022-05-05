@@ -1,5 +1,9 @@
 from flask import Flask
-from .config import DevConfig
+
+from app.main import views
+from ..config import DevConfig
+
+
 
 #initializing flask
 app  = Flask(__name__)
@@ -11,4 +15,4 @@ app.config.from_pyfile('config.py')
 
 
 #importing error and view files from app
-from app import views,error 
+from app.main import error 
