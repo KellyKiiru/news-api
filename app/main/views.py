@@ -1,18 +1,13 @@
-from flask import Flask
-from flask import render_template
-from app import app
-from .. import request 
-from ..request import * 
+from . import main 
+from ..request import *
+from flask import render_template,request,redirect,url_for 
+from ..models import *
 
-#The views with the necessary routing
-from flask import Flask
-from flask import render_template,request,redirect,url_for
-from app import app
 
 
 
 #The views with the necessary routing
-@app.route('/')
+@main.route('/')
 def home():
     all_articles = get_all_articles('all') 
     all_sources = get_sources()
