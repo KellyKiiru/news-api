@@ -21,3 +21,12 @@ def home():
 
     return render_template('index.html',all_articles=all_articles,all_sources=all_sources,technology_articles=technology_articles, tech_articles = tech_articles)
 
+@main.route('/search/<article>')
+def search(article):
+    searched_articles_list = article.split(" ")
+    article_name_format = "+".join(searched_articles_list)
+    searched_articles = search_article(article_name_format)
+
+    heading = article.capitalize()
+    
+    return render_template('found.html',searched_articles=searched_articles,heading=heading)
