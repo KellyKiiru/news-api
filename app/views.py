@@ -6,7 +6,9 @@ from app import app
 #The views with the necessary routing
 @app.route('/')
 def index():
-    
+    # Function that returns user to the index page 
+     
     title = 'Home - Welcome to the home of worldwide news'
-    # Function that returns user to the index page
+
     return render_template('index.html', title = title)
+
