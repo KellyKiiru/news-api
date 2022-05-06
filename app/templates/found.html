@@ -2,11 +2,14 @@
 {% import 'macros.html' as macro %}
 
 {% block content %}
+{% block form %}
+    {% include 'form.html' %}
+{% endblock %}
 <div class="found-results">
-    <h3 class="main-heading-search text-center">Found {{searched_articles|count}} matches for <span
-            class="title-heading-search">{{heading}} </span>articles.</h3>
+    <h3 class="main-heading-search text-center">{{searched_articles|count}} Latest <span
+        class="title-heading-search"><span style="border-radius: 5px; background-color: black; color: whitesmoke; padding: 5px;">{{heading}}</span> </span>articles.</h3>
     <div class="row">
-        {% for article in searched_articles[0:20] %}
+        {% for article in searched_articles[0:22] %}
         <div class="col-md-4 col-xl-3 col-sm-6">
             <div class="card" style="box-shadow:
             2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),

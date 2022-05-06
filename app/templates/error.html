@@ -1,7 +1,10 @@
 <div class="bg" style="background-color: black; height: 100vh">
     {% extends 'base.html' %}
     
-    {% block content %}
+{% block content %}
+    {% block form %}
+        {% include 'form.html' %}
+    {% endblock %}
     <div class="container">
         <div class="row">
             <div class="col-md-6" style="padding: 50px; margin:auto;">
