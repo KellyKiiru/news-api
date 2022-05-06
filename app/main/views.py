@@ -30,3 +30,11 @@ def search(article):
     heading = article.capitalize()
     
     return render_template('found.html',searched_articles=searched_articles,heading=heading)
+
+@main.route('/source/<source_name>')
+def source(source_name):
+    article_display = get_article_by_source(source_name)
+    
+    title = source_name.capitalize()
+
+    return render_template('source.html', article_display=article_display,title=title )
