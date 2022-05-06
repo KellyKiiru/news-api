@@ -3,7 +3,7 @@
 
 {% block content %}
 {% block form %}
-    {% include 'form.html' %}
+{% include 'form.html' %}
 {% endblock %}
 
 <div class="container">
@@ -19,8 +19,9 @@
                     12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
                     22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
                     41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
-                    100px 100px 80px rgba(0, 0, 0, 0.07)" >
-                        <a href="{{article.url}}"><img class="card-img-top" src="{{article.urlToImage}}" alt="Card image cap"></a>
+                    100px 100px 80px rgba(0, 0, 0, 0.07)">
+                        <a href="{{article.url}}"><img class="card-img-top" src="{{article.urlToImage}}"
+                                alt="Card image cap"></a>
                         <hr>
                         <div class="card-body main-section-two-card-body">
                             <h5 class="card-title main-section-two-title">{{article.title}}</h5>
@@ -33,10 +34,15 @@
                 {% endfor %}
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 bg-dark">
-    
+        <div class="col-md-3 main-section-one bg-dark" style="height:max-content;">
+            <h4 class="main-heading text-center" style="color:whitesmoke;">News Sources at your disposal</h4>
+            <ul>
+                {% for source in all_sources[0:15] %}
+                <li><a style="text-decoration: none;
+                    color: white; " href="/source/{{source.id}}" class="source-title">{{source.name}}</a></li>
+                {% endfor %}
+                <br>
+            </ul>
         </div>
     </div>
 </div>
