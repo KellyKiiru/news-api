@@ -10,16 +10,15 @@ from ..models import *
 @main.route('/')
 def home():
     tech_articles = get_article_by_top_headline('technology')
-    all_articles = get_all_articles('all') 
+    all_articles = get_all_articles('all')
     all_sources = get_sources()
 
     search_article = request.args.get('article_query')
 
     if search_article:
-        return redirect(url_for('.search',article=search_article))
+        return redirect(url_for('.found',article=search_article))
 
     return render_template('index.html',tech_articles=tech_articles,all_articles=all_articles,all_sources=all_sources)
-
 
 @main.route('/search/<article>')
 def search(article):
@@ -31,7 +30,11 @@ def search(article):
     
     return render_template('found.html',searched_articles=searched_articles,heading=heading)
 
+@main.route('/sources')
+def sources():
+    all_sources = get_sources()
 
+    return render_template('sources.html',all_sources=all_sources)
 
 @main.route('/source/<source_name>')
 def source(source_name):
