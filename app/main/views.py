@@ -39,9 +39,3 @@ def source(source_name):
     title = source_name.capitalize()
 
     return render_template('source.html', article_display=article_display,title=title )
-
-@main.route('/sources')
-def sources():
-    all_sources = get_sources()
-
-    return render_template('sources.html',all_sources=all_sources)
