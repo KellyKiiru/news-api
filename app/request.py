@@ -99,20 +99,6 @@ def search_article(article):
             search_article_results = process_results(search_article_list)
     return search_article_results
 
-def get_article_everything(query):
-    get_articles_url = 'https://newsapi.org/v2/everything?q={}&from=2022-04-30&language=en&sortBy=publishedAt&apiKey={}'.format(query,api_key)
-    with urllib.request.urlopen(get_articles_url) as url:
-        get_articles_data = url.read()
-        get_articles_response = json.loads(get_articles_data)
-
-        articles_results = None
-
-        if get_articles_response['articles']:
-            articles_results_list = get_articles_response['articles']
-            articles_results = process_results(articles_results_list)
-
-    return articles_results
-
 def get_article_by_source(source_name):
     get_source_article_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(source_name,api_key)
     print(get_source_article_url)
