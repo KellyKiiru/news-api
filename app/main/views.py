@@ -16,7 +16,7 @@ def home():
     search_article = request.args.get('article_query')
 
     if search_article:
-        return redirect(url_for('.found',article=search_article))
+        return redirect(url_for('.search',article=search_article))
 
     return render_template('index.html',tech_articles=tech_articles,all_articles=all_articles,all_sources=all_sources)
 
@@ -39,6 +39,6 @@ def sources():
 @main.route('/source/<source_name>')
 def source(source_name):
     article_display = get_article_by_source(source_name)
-    title = source_name.capitalize()
+    title = source_name.upper()
 
-    return render_template('source.html', article_display=article_display,title=title )
+    return render_template('source.html', article_display=article_display,title=title ) 
