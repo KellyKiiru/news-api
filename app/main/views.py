@@ -1,3 +1,4 @@
+from turtle import title
 from . import main 
 from ..request import *
 from flask import render_template,request,redirect,url_for 
@@ -13,8 +14,9 @@ def home():
     all_articles = get_all_articles('all') 
     all_sources = get_sources()
     technology_articles = get_article_by_top_headline('technology') 
+    title = 'Your home of breaking news'
 
-    search_article = request.args.get('article_query')
+    search_article = request.args.get('article_query', title = title)
 
     if search_article:
         return redirect(url_for('.search',article=search_article))
@@ -27,9 +29,9 @@ def search(article):
     article_name_format = "+".join(searched_articles_list)
     searched_articles = search_article(article_name_format)
 
-    heading = article.capitalize()
+    title = article.capitalize()
     
-    return render_template('found.html',searched_articles=searched_articles,heading=heading)
+    return render_template('found.html',searched_articles=searched_articles,title=title)
 
 @main.route('/source/<source_name>')
 def source(source_name):
