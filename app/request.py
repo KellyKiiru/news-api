@@ -8,7 +8,7 @@ base_url = None
 
 
 def make_request(app):
-    global api_key,base_url 
+    global api_key,base_url
     api_key = app.config['NEWS_API_KEY']
     base_url = app.config['NEWS_API_BASE_URL']
     pass
